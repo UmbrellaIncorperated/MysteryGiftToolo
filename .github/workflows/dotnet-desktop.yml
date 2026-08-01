@@ -1,0 +1,33 @@
+name: Build mysterygift Tool
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    - name: Restore
+      run: nuget restore BW_tool.sln
+
+    - name: Build (verbose debug)
+      shell: cmd
+      run: |
+        msbuild MysteryGiftTool.sln /p:Configuration=Release /v:diag
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Pokemon
+        path: |
+          **\bin\Release\*.exe
