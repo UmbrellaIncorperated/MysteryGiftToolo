@@ -30,4 +30,4 @@ jobs:
       with:
         name: Pokemon
         path: |
-          **\bin\Release\*.exe
+          **\bin\Release\
