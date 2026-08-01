@@ -19,8 +19,8 @@ namespace MysteryGiftTool
         private static DateTime now = DateTime.Now;
         private static bool keep_log;
         private static StreamWriter log;
-        private const string filelist_server = "https://npfl.c.app.nintendowifi.net/p01/filelist/{0}/FGONLYT?ap=11012900000";
-        private const string file_server = "https://npdl.cdn.nintendowifi.net/p01/nsa/{0}/FGONLYT/{1}?ap=11012900000&tm=2";
+        private const string filelist_server = "https://npfl.c.app.nintendowifi.net/p01/filelist/{0}/FGONLYT";
+        private const string file_server = "https://npdl.cdn.nintendowifi.net/p01/nsa/{0}/FGONLYT/{1}";
         private static readonly CTR.AesEngine engine = new CTR.AesEngine();
 
         private static readonly Game[] games =
