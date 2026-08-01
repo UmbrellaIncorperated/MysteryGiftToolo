@@ -151,7 +151,6 @@ namespace MysteryGiftTool
                 var new_boss = fl.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Where(s => s.Contains("\t")).Select(BossMetadata.FromString).ToList();
                 var old_boss = old_fl.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).Where(s => s.Contains("\t")).Select(BossMetadata.FromString).ToList();
 
-                int i = 0;
                 foreach (var boss in new_boss)
                 {
                     var server_data_url = string.Format(file_server, game_id, boss.Name);
@@ -166,12 +165,6 @@ namespace MysteryGiftTool
                     if (old_boss.Any(bm => boss.IsUpdatedVersionOf(bm)))
                         Log($"{boss.FileName} is an updated version of an old archive!");
 
-                    if (i >= 1999999990)
-                    {
-                        break;
-                    }
-
-                    i++;
                 }
             }
         }
